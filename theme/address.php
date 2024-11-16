@@ -572,7 +572,7 @@
 
 	<!-- Main Js File -->
 	<script src="js/script.js"></script>
-	<!-- thay doi git -->
+	
 
 
 
