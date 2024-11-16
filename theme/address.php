@@ -572,6 +572,7 @@
 
 	<!-- Main Js File -->
 	<script src="js/script.js"></script>
+	<!-- comm\etn -->
 
 
 
