@@ -48,9 +48,9 @@
 							Nguyễn Văn Hà
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="profile.html">Profile</a></li>
-							<li><a href="Order information.html">Order information</a></li>
-							<li><a href="login.html">Logout</a></li>
+							<li><a href="profile.php">Profile</a></li>
+							<li><a href="Order information.php">Order information</a></li>
+							<li><a href="login.php">Logout</a></li>
 						</ul>
 					</div>
 					<div class="contact-number"><br><br>
@@ -86,7 +86,7 @@
 				<div class="col-md-4 col-xs-12 col-sm-4">
 					<!-- Site Logo -->
 					<div class="logo text-center">
-						<a href="index.html">
+						<a href="index.php">
 							<!-- replace logo here -->
 							<svg width="500px" height="150px" viewBox="0 0 600 200" version="1.1"
 								xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -148,8 +148,8 @@
 									<span class="total-price">$1799.00</span>
 								</div>
 								<ul class="text-center cart-buttons">
-									<li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-									<li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+									<li><a href="cart.php" class="btn btn-small">View Cart</a></li>
+									<li><a href="checkout.php" class="btn btn-small btn-solid-border">Checkout</a></li>
 								</ul>
 							</div>
 
@@ -208,7 +208,7 @@
 
 						<!-- Home -->
 						<li class="dropdown ">
-							<a href="index.html">Home</a>
+							<a href="index.php">Home</a>
 						</li><!-- / Home -->
 
 
@@ -225,9 +225,9 @@
 										<ul>
 											<li class="dropdown-header">Pages</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="shop.html">Shop</a></li>
-											<li><a href="checkout.html">Checkout</a></li>
-											<li><a href="cart.html">Cart</a></li>
+											<li><a href="shop.php">Shop</a></li>
+											<li><a href="checkout.php">Checkout</a></li>
+											<li><a href="cart.php">Cart</a></li>
 											<li><a href="confirmation.html">Confirmation</a></li>
 
 										</ul>
@@ -238,8 +238,8 @@
 										<ul>
 											<li class="dropdown-header">Layout</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="product-single.html">Product Details</a></li>
-											<!-- <li><a href="shop-sidebar.html">Shop With Sidebar</a></li> -->
+											<li><a href="product-single.php">Product Details</a></li>
+											
 
 										</ul>
 									</div>
@@ -262,7 +262,7 @@
 										<ul>
 											<li class="dropdown-header">Introduction</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="contact.html">Contact Us</a></li>
+											<li><a href="contact.php">Contact Us</a></li>
 											<li><a href="404.html">404 Page</a></li>
 											<li><a href="faq.html">FAQ</a></li>
 										</ul>
@@ -273,10 +273,11 @@
 										<ul>
 											<li class="dropdown-header">Dashboard</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="dashboard.html">User Interface</a></li>
-											<li><a href="order.html">Orders</a></li>
-											<li><a href="address.html">Address</a></li>
-											<li><a href="profile-details.html">Profile Details</a></li>
+											<li><a href="dashboard.php">User Interface</a></li>
+											<li><a href="order.php">Orders</a></li>
+											<li><a href="address.php">Address</a></li>
+											<li><a href="profile-details.php">Profile Details</a></li>
+											<li><a href="post products.php">Post products</a></li>
 										</ul>
 									</div>
 
@@ -285,15 +286,15 @@
 										<ul>
 											<li class="dropdown-header">Utility</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="login.html">Login Page</a></li>
-											<li><a href="signin.html">Signin Page</a></li>
-											<li><a href="forget-password.html">Forget Password</a></li>
+											<li><a href="login.php">Login Page</a></li>
+											<li><a href="signin.php">Signin Page</a></li>
+											<li><a href="forget-password.php">Forget Password</a></li>
 										</ul>
 									</div>
 
 									<!-- Mega Menu -->
 									<div class="col-sm-3 col-xs-12">
-										<a href="shop.html">
+										<a href="shop.php">
 											<img class="img-responsive"
 												src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/444503418_1202652411106053_6593793449677321316_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHBiCR-AYgnVooXX1LXcQ0cTWP5vC9N7gdNY_m8L03uB27qbMZZjgNpV26VCs8pp2gjYXUubWF9lKA7jcSkEOYM&_nc_ohc=Gi9FcivlIBAQ7kNvgGEf1cj&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=A-uXQ7aEiXsr3BhlAuKowoH&oh=00_AYDXxC9VitRrUCdpo_TlvEEGXj28BZwiU8z6XpxSRuJIDw&oe=6736296B"
 												alt="menu image" />
@@ -315,17 +316,12 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="shop.html">Shop</a></li>
+						<li><a href="index.php">Home</a></li>
+						<li><a href="shop.php">Shop</a></li>
 						<li class="active">Single Product</li>
 					</ol>
 				</div>
-				<div class="col-md-6">
-					<ol class="product-pagination text-right">
-						<li><a href="blog-left-sidebar.html"><i class="tf-ion-ios-arrow-left"></i> Next </a></li>
-						<li><a href="blog-left-sidebar.html">Preview <i class="tf-ion-ios-arrow-right"></i></a></li>
-					</ol>
-				</div>
+				
 			</div>
 			<div class="row mt-20">
 				<div class="col-md-5">
@@ -446,11 +442,11 @@
 						<div class="product-category">
 							<span>Categories:</span>
 							<ul>
-								<li><a href="product-single.html">screen</a></li>
-								<li><a href="product-single.html">Apple</a></li>
+								<li><a href="product-single.php">screen</a></li>
+								<li><a href="product-single.php">Apple</a></li>
 							</ul>
 						</div>
-						<a href="cart.html" class="btn btn-main mt-20">Add To Cart</a>
+						<a href="cart.php" class="btn btn-main mt-20">Add To Cart</a>
 					</div>
 				</div>
 			</div>
@@ -627,7 +623,7 @@
 							</div>
 						</div>
 						<div class="product-content">
-							<h4><a href="product-single.html">MacBook Pro 16 inch M3 Pro</a></h4>
+							<h4><a href="product-single.php">MacBook Pro 16 inch M3 Pro</a></h4>
 							<p class="price">$1000</p>
 						</div>
 					</div>
@@ -654,7 +650,7 @@
 							</div>
 						</div>
 						<div class="product-content">
-							<h4><a href="product-single.html">iMac M4 2024 24 inch</a></h4>
+							<h4><a href="product-single.php">iMac M4 2024 24 inch</a></h4>
 							<p class="price">$2000</p>
 						</div>
 					</div>
@@ -682,7 +678,7 @@
 							</div>
 						</div>
 						<div class="product-content">
-							<h4><a href="product-single.html">Mac mini M4 2024</a></h4>
+							<h4><a href="product-single.php">Mac mini M4 2024</a></h4>
 							<p class="price">$1500</p>
 						</div>
 					</div>
@@ -711,7 +707,7 @@
 							</div>
 						</div>
 						<div class="product-content">
-							<h4><a href="product-single.html">RAZER BLADE 18</a></h4>
+							<h4><a href="product-single.php">RAZER BLADE 18</a></h4>
 							<p class="price">$2000</p>
 						</div>
 					</div>
@@ -748,8 +744,8 @@
 									colors and true-to-life clarity, making it perfect for both work and
 									entertainment. Sleek, powerful, and designed for the future.
 								</p>
-								<a href="cart.html" class="btn btn-main">Add To Cart</a>
-								<a href="product-single.html" class="btn btn-transparent">View Product
+								<a href="cart.php" class="btn btn-main">Add To Cart</a>
+								<a href="product-single.php" class="btn btn-transparent">View Product
 									Details</a>
 							</div>
 						</div>
@@ -786,13 +782,13 @@
 					</ul>
 					<ul class="footer-menu text-uppercase">
 						<li>
-							<a href="contact.html">CONTACT</a>
+							<a href="contact.php">CONTACT</a>
 						</li>
 						<li>
-							<a href="shop.html">SHOP</a>
+							<a href="shop.php">SHOP</a>
 						</li>
 						<li>
-							<a href="pricing.html">Pricing</a>
+							<a href="faq.html">F.A.Q</a>
 						</li>
 						<li>
 							<a href="contact.html">PRIVACY POLICY</a>

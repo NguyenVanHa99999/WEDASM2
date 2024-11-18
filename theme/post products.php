@@ -1,3 +1,9 @@
+<?php
+require_once 'restrict_access.php'; // Kiểm tra quyền truy cập
+?>
+
+
+
 <html lang="en">
 
 </html>
@@ -49,9 +55,9 @@
                             Nguyễn Văn Hà
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="Order information.html">Order information</a></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="profile.php">Profile</a></li>
+                            <li><a href="Order information.php">Order information</a></li>
+                            <li><a href="login.php">Logout</a></li>
                         </ul>
                     </div>
                     <div class="contact-number"><br><br>
@@ -87,7 +93,7 @@
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <!-- Site Logo -->
                     <div class="logo text-center">
-                        <a href="index.html">
+                        <a href="index.php">
                             <!-- replace logo here -->
                             <svg width="500px" height="150px" viewBox="0 0 600 200" version="1.1"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -149,8 +155,8 @@
                                     <span class="total-price">$1799.00</span>
                                 </div>
                                 <ul class="text-center cart-buttons">
-                                    <li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-                                    <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                    <li><a href="cart.php" class="btn btn-small">View Cart</a></li>
+                                    <li><a href="checkout.php" class="btn btn-small btn-solid-border">Checkout</a></li>
                                 </ul>
                             </div>
 
@@ -207,101 +213,100 @@
                 <div id="navbar" class="navbar-collapse collapse text-center">
                     <ul class="nav navbar-nav">
 
-                        <!-- Home -->
-                        <li class="dropdown ">
-                            <a href="index.html">Home</a>
-                        </li><!-- / Home -->
+                       <!-- Home -->
+						<li class="dropdown ">
+							<a href="index.php">Home</a>
+						</li><!-- / Home -->
 
 
-                        <!-- Elements -->
-                        <li class="dropdown dropdown-slide">
-                            <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                                data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                    class="tf-ion-ios-arrow-down"></span></a>
-                            <div class="dropdown-menu">
-                                <div class="row">
+						<!-- Elements -->
+						<li class="dropdown dropdown-slide">
+							<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+								data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">Shop <span
+									class="tf-ion-ios-arrow-down"></span></a>
+							<div class="dropdown-menu">
+								<div class="row">
 
-                                    <!-- Basic -->
-                                    <div class="col-lg-6 col-md-6 mb-sm-3">
-                                        <ul>
-                                            <li class="dropdown-header">Pages</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="confirmation.html">Confirmation</a></li>
+									<!-- Basic -->
+									<div class="col-lg-6 col-md-6 mb-sm-3">
+										<ul>
+											<li class="dropdown-header">Pages</li>
+											<li role="separator" class="divider"></li>
+											<li><a href="shop.php">Shop</a></li>
+											<li><a href="checkout.php">Checkout</a></li>
+											<li><a href="cart.php">Cart</a></li>
+											<li><a href="confirmation.html">Confirmation</a></li>
 
-                                        </ul>
-                                    </div>
+										</ul>
+									</div>
 
-                                    <!-- Layout -->
-                                    <div class="col-lg-6 col-md-6 mb-sm-3">
-                                        <ul>
-                                            <li class="dropdown-header">Layout</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="product-single.html">Product Details</a></li>
-                                            <!-- <li><a href="shop-sidebar.html">Shop With Sidebar</a></li> -->
+									<!-- Layout -->
+									<div class="col-lg-6 col-md-6 mb-sm-3">
+										<ul>
+											<li class="dropdown-header">Layout</li>
+											<li role="separator" class="divider"></li>
+											<li><a href="product-single.php">Product Details</a></li>
+											
 
-                                        </ul>
-                                    </div>
+										</ul>
+									</div>
 
-                                </div><!-- / .row -->
-                            </div><!-- / .dropdown-menu -->
-                        </li><!-- / Elements -->
+								</div><!-- / .row -->
+							</div><!-- / .dropdown-menu -->
+						</li><!-- / Elements -->
 
 
-                        <!-- Pages -->
-                        <li class="dropdown full-width dropdown-slide">
-                            <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                                data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                    class="tf-ion-ios-arrow-down"></span></a>
-                            <div class="dropdown-menu">
-                                <div class="row">
+						<!-- Pages -->
+						<li class="dropdown full-width dropdown-slide">
+							<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+								data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">Pages <span
+									class="tf-ion-ios-arrow-down"></span></a>
+							<div class="dropdown-menu">
+								<div class="row">
 
-                                    <!-- Introduction -->
-                                    <div class="col-sm-3 col-xs-12">
-                                        <ul>
-                                            <li class="dropdown-header">Introduction</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="404.html">404 Page</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
-                                        </ul>
-                                    </div>
+									<!-- Introduction -->
+									<div class="col-sm-3 col-xs-12">
+										<ul>
+											<li class="dropdown-header">Introduction</li>
+											<li role="separator" class="divider"></li>
+											<li><a href="contact.php">Contact Us</a></li>
+											<li><a href="404.html">404 Page</a></li>
+											<li><a href="faq.html">FAQ</a></li>
+										</ul>
+									</div>
 
-                                    <!-- Contact -->
-                                    <div class="col-sm-3 col-xs-12">
-                                        <ul>
-                                            <li class="dropdown-header">Dashboard</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="dashboard.html">User Interface</a></li>
-                                            <li><a href="order.html">Orders</a></li>
-                                            <li><a href="address.html">Address</a></li>
-                                            <li><a href="profile-details.html">Profile Details</a></li>
-                                            <li><a href="post products.html">Post products</a></li>
+									<!-- Contact -->
+									<div class="col-sm-3 col-xs-12">
+										<ul>
+											<li class="dropdown-header">Dashboard</li>
+											<li role="separator" class="divider"></li>
+											<li><a href="dashboard.php">User Interface</a></li>
+											<li><a href="order.php">Orders</a></li>
+											<li><a href="address.php">Address</a></li>
+											<li><a href="profile-details.php">Profile Details</a></li>
+											<li><a href="post products.php">Post products</a></li>
+										</ul>
+									</div>
 
-                                        </ul>
-                                    </div>
+									<!-- Utility -->
+									<div class="col-sm-3 col-xs-12">
+										<ul>
+											<li class="dropdown-header">Utility</li>
+											<li role="separator" class="divider"></li>
+											<li><a href="login.php">Login Page</a></li>
+											<li><a href="signin.php">Signin Page</a></li>
+											<li><a href="forget-password.php">Forget Password</a></li>
+										</ul>
+									</div>
 
-                                    <!-- Utility -->
-                                    <div class="col-sm-3 col-xs-12">
-                                        <ul>
-                                            <li class="dropdown-header">Utility</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="login.html">Login Page</a></li>
-                                            <li><a href="signin.html">Signin Page</a></li>
-                                            <li><a href="forget-password.html">Forget Password</a></li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Mega Menu -->
-                                    <div class="col-sm-3 col-xs-12">
-                                        <a href="shop.html">
-                                            <img class="img-responsive"
-                                                src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/444503418_1202652411106053_6593793449677321316_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHBiCR-AYgnVooXX1LXcQ0cTWP5vC9N7gdNY_m8L03uB27qbMZZjgNpV26VCs8pp2gjYXUubWF9lKA7jcSkEOYM&_nc_ohc=Gi9FcivlIBAQ7kNvgGEf1cj&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=A-uXQ7aEiXsr3BhlAuKowoH&oh=00_AYDXxC9VitRrUCdpo_TlvEEGXj28BZwiU8z6XpxSRuJIDw&oe=6736296B"
-                                                alt="menu image" />
-                                        </a>
-                                    </div>
+									<!-- Mega Menu -->
+									<div class="col-sm-3 col-xs-12">
+										<a href="shop.php">
+											<img class="img-responsive"
+												src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/444503418_1202652411106053_6593793449677321316_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHBiCR-AYgnVooXX1LXcQ0cTWP5vC9N7gdNY_m8L03uB27qbMZZjgNpV26VCs8pp2gjYXUubWF9lKA7jcSkEOYM&_nc_ohc=Gi9FcivlIBAQ7kNvgGEf1cj&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=A-uXQ7aEiXsr3BhlAuKowoH&oh=00_AYDXxC9VitRrUCdpo_TlvEEGXj28BZwiU8z6XpxSRuJIDw&oe=6736296B"
+												alt="menu image" />
+										</a>
+									</div>
                                 </div><!-- / .row -->
                             </div><!-- / .dropdown-menu -->
                         </li><!-- / Pages -->
@@ -320,7 +325,7 @@
                     <div class="content">
                         <h1 class="page-name">Dashboard</h1>
                         <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.php">Home</a></li>
                             <li class="active">Post a New Product</li>
                         </ol>
                     </div>
@@ -333,7 +338,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="text-center">Post a New Product</h2>
-                    <form action="submit-product.html" method="POST" enctype="multipart/form-data">
+                    <form action="submit-product.php" method="POST" enctype="multipart/form-data">
                         <!-- Product Name -->
                         <div class="form-group">
                             <label for="product-name">Product Name</label>
@@ -384,58 +389,57 @@
                             <button type="submit" class="btn btn-primary">Post Product</button>
                         </div>
                         <!-- Delete Product -->
-<div class="form-group">
-    <label for="delete-product-id">Delete Product by ID</label>
-    <input type="text" id="delete-product-id" name="delete_product_id" class="form-control"
-        placeholder="Enter Product ID to delete">
-</div>
-<div class="form-group text-center">
-    <button type="submit" formaction="delete-product.html" formmethod="POST" class="btn btn-danger">Delete Product</button>
-</div>
+                        <div class="form-group">
+                            <label for="delete-product-id">Delete Product by ID</label>
+                            <input type="text" id="delete-product-id" name="delete_product_id" class="form-control"
+                                placeholder="Enter Product ID to delete">
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" formaction="delete-product.php" formmethod="POST" class="btn btn-danger">Delete Product</button>
+                        </div>
 
                     </form>
                 </div>
             </div>
         </div>
         <style>
-            
             .dashboard-menu {
-            margin: 20px 0;
-            padding: 0;
-            list-style: none;
-            border-bottom: 2px solid #ddd;
-        }
+                margin: 20px 0;
+                padding: 0;
+                list-style: none;
+                border-bottom: 2px solid #ddd;
+            }
 
-        .dashboard-menu li {
-            display: inline-block;
-            margin: 0 10px;
-        }
+            .dashboard-menu li {
+                display: inline-block;
+                margin: 0 10px;
+            }
 
-        .dashboard-menu li a {
-            text-decoration: none;
-            font-size: 16px;
-            padding: 15px 20px;
-            color: #555;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            transition: all 0.3s ease-in-out;
-            height: 50px;
-            line-height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+            .dashboard-menu li a {
+                text-decoration: none;
+                font-size: 16px;
+                padding: 15px 20px;
+                color: #555;
+                border: 1px solid transparent;
+                border-radius: 5px;
+                transition: all 0.3s ease-in-out;
+                height: 50px;
+                line-height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-        .dashboard-menu li a.active,
-        .dashboard-menu li a:hover {
-            background-color: #007bff;
-            color: white;
-            border-color: #007bff;
-        }
+            .dashboard-menu li a.active,
+            .dashboard-menu li a:hover {
+                background-color: #007bff;
+                color: white;
+                border-color: #007bff;
+            }
 
-        .dashboard-menu.text-center {
-            text-align: center;
-        }
+            .dashboard-menu.text-center {
+                text-align: center;
+            }
         </style>
     </section>
 
@@ -468,16 +472,16 @@
                     </ul>
                     <ul class="footer-menu text-uppercase">
                         <li>
-                            <a href="contact.html">CONTACT</a>
+                            <a href="contact.php">CONTACT</a>
                         </li>
                         <li>
-                            <a href="shop.html">SHOP</a>
+                            <a href="shop.php">SHOP</a>
                         </li>
                         <li>
-                            <a href="pricing.html">Pricing</a>
+                            <a href="faq.html">F.A.Q</a>
                         </li>
                         <li>
-                            <a href="contact.html">PRIVACY POLICY</a>
+                            <a href="contact.php">PRIVACY POLICY</a>
                         </li>
                     </ul>
                     <p class="copyright-text">2024 &copy; Designed by BTEC Student Nguyen Van Ha <a

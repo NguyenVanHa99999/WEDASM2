@@ -1,3 +1,53 @@
+<?php
+session_start();
+
+// Kết nối database
+require_once 'config.php';
+
+$error_message = ""; // Biến lưu trữ thông báo lỗi
+
+// Chỉ xử lý khi request là POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Lấy dữ liệu từ form
+    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+    $password = isset($_POST['password']) ? trim($_POST['password']) : '';
+
+    // Kiểm tra nếu không có dữ liệu
+    if (empty($username) || empty($password)) {
+        $error_message = "Vui lòng nhập đầy đủ thông tin.";
+    } else {
+        // Truy vấn thông tin người dùng từ database
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        if ($user) {
+            // Kiểm tra mật khẩu
+            if ($password === $user['password']) { // Nếu mật khẩu chưa hash
+                // Đăng nhập thành công
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['user_role'] = $user['role']; // Vai trò: admin hoặc user
+
+                // Điều hướng theo role
+                if ($user['role'] === 'admin') {
+                    header("Location: dashboard.php"); // Admin vào dashboard
+                } else {
+                    header("Location: index.php"); // User vào shop
+                }
+                exit();
+            } else {
+                $error_message = "Sai mật khẩu.";
+            }
+        } else {
+            $error_message = "Tài khoản không tồn tại.";
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -47,33 +97,39 @@
 </head>
 
 <body id="body">
-
 <section class="signin-page account">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="block text-center">
-          <a class="logo" href="index.html">
-            <img src="images/logo.png" alt="logo">
-          </a>
-          <h2 class="text-center">Welcome Back</h2>
-          <form class="text-left clearfix" action="index.html" >
-            <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Email">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="block text-center">
+                    <a class="logo" href="index.php">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <h2 class="text-center">Welcome Back</h2>
+                    <!-- Hiển thị lỗi nếu có -->
+                    <?php if (!empty($error_message)): ?>
+                        <div class="alert alert-danger">
+                            <?php echo htmlspecialchars($error_message); ?>
+                        </div>
+                    <?php endif; ?>
+                    <form class="text-left clearfix" action="" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-main text-center">Login</button>
+                        </div>
+                    </form>
+                    <p class="mt-20">New in this site? <a href="signin.php">Create New Account</a></p>
+                </div>
             </div>
-            <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-main text-center">Login</button>
-            </div>
-          </form>
-          <p class="mt-20">New in this site ?<a href="signin.html"> Create New Account</a></p>
         </div>
-      </div>
     </div>
-  </div>
 </section>
+
 
     <!-- 
     Essential Scripts
@@ -106,3 +162,4 @@
 
   </body>
 </html>
+

@@ -1,3 +1,7 @@
+<?php
+require_once 'restrict_access.php'; // Kiểm tra quyền truy cập
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,9 +52,9 @@
 							Nguyễn Văn Hà
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="profile.html">Profile</a></li>
-							<li><a href="Order information.html">Order information</a></li>
-							<li><a href="login.html">Logout</a></li>
+							<li><a href="profile.php">Profile</a></li>
+							<li><a href="Order information.php">Order information</a></li>
+							<li><a href="login.php">Logout</a></li>
 						</ul>
 					</div>
 					<div class="contact-number"><br><br>
@@ -148,8 +152,8 @@
 									<span class="total-price">$1799.00</span>
 								</div>
 								<ul class="text-center cart-buttons">
-									<li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-									<li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+									<li><a href="cart.php" class="btn btn-small">View Cart</a></li>
+									<li><a href="checkout.php" class="btn btn-small btn-solid-border">Checkout</a></li>
 								</ul>
 							</div>
 
@@ -208,7 +212,7 @@
 
 						<!-- Home -->
 						<li class="dropdown ">
-							<a href="index.html">Home</a>
+							<a href="index.php">Home</a>
 						</li><!-- / Home -->
 
 
@@ -225,9 +229,9 @@
 										<ul>
 											<li class="dropdown-header">Pages</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="shop.html">Shop</a></li>
-											<li><a href="checkout.html">Checkout</a></li>
-											<li><a href="cart.html">Cart</a></li>
+											<li><a href="shop.php">Shop</a></li>
+											<li><a href="checkout.php">Checkout</a></li>
+											<li><a href="cart.php">Cart</a></li>
 											<li><a href="confirmation.html">Confirmation</a></li>
 
 										</ul>
@@ -238,8 +242,8 @@
 										<ul>
 											<li class="dropdown-header">Layout</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="product-single.html">Product Details</a></li>
-											<!-- <li><a href="shop-sidebar.html">Shop With Sidebar</a></li> -->
+											<li><a href="product-single.php">Product Details</a></li>
+
 
 										</ul>
 									</div>
@@ -262,7 +266,7 @@
 										<ul>
 											<li class="dropdown-header">Introduction</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="contact.html">Contact Us</a></li>
+											<li><a href="contact.php">Contact Us</a></li>
 											<li><a href="404.html">404 Page</a></li>
 											<li><a href="faq.html">FAQ</a></li>
 										</ul>
@@ -273,11 +277,11 @@
 										<ul>
 											<li class="dropdown-header">Dashboard</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="dashboard.html">User Interface</a></li>
-											<li><a href="order.html">Orders</a></li>
-											<li><a href="address.html">Address</a></li>
-											<li><a href="profile-details.html">Profile Details</a></li>
-											<li><a href="post products.html">Post products</a></li>
+											<li><a href="dashboard.php">User Interface</a></li>
+											<li><a href="order.php">Orders</a></li>
+											<li><a href="address.php">Address</a></li>
+											<li><a href="profile-details.php">Profile Details</a></li>
+											<li><a href="post products.php">Post products</a></li>
 										</ul>
 									</div>
 
@@ -286,15 +290,15 @@
 										<ul>
 											<li class="dropdown-header">Utility</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="login.html">Login Page</a></li>
-											<li><a href="signin.html">Signin Page</a></li>
-											<li><a href="forget-password.html">Forget Password</a></li>
+											<li><a href="login.php">Login Page</a></li>
+											<li><a href="signin.php">Signin Page</a></li>
+											<li><a href="forget-password.php">Forget Password</a></li>
 										</ul>
 									</div>
 
 									<!-- Mega Menu -->
 									<div class="col-sm-3 col-xs-12">
-										<a href="shop.html">
+										<a href="shop.php">
 											<img class="img-responsive"
 												src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/444503418_1202652411106053_6593793449677321316_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHBiCR-AYgnVooXX1LXcQ0cTWP5vC9N7gdNY_m8L03uB27qbMZZjgNpV26VCs8pp2gjYXUubWF9lKA7jcSkEOYM&_nc_ohc=Gi9FcivlIBAQ7kNvgGEf1cj&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=A-uXQ7aEiXsr3BhlAuKowoH&oh=00_AYDXxC9VitRrUCdpo_TlvEEGXj28BZwiU8z6XpxSRuJIDw&oe=6736296B"
 												alt="menu image" />
@@ -319,7 +323,7 @@
 					<div class="content">
 						<h1 class="page-name">Dashboard</h1>
 						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index.php">Home</a></li>
 							<li class="active">information user management</li>
 						</ol>
 					</div>
@@ -335,11 +339,11 @@
 				<div class="col-md-12">
 
 					<ul class="list-inline dashboard-menu text-center">
-						<li><a class="active" href="dashboard.html">Dashboard user</a></li>
-						<li><a href="order.html">Orders</a></li>
-						<li><a href="address.html">Address</a></li>
-						<li><a href="profile-details.html">Profile Details</a></li>
-						<li><a href="post products.html">Post products</a></li>
+						<li><a class="active" href="dashboard.php">Dashboard user</a></li>
+						<li><a href="order.php">Orders</a></li>
+						<li><a href="address.php">Address</a></li>
+						<li><a href="profile-details.php">Profile Details</a></li>
+						<li><a href="post products.php">Post products</a></li>
 					</ul><br>
 
 					<!-- Search Bar -->
@@ -390,31 +394,49 @@
 	<!-- JavaScript for search functionality -->
 	<script>
 		// Sample customers array with avatars and order information
-		const customers = [
-			{
+		const customers = [{
 				name: "Nguyễn Văn Hà",
 				avatar: "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/449679975_1224493928921901_506438491388211638_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHuhB-rxRmM7xd8dhGBpsA4Tl6-DUuu0ohOXr4NS67SiPandfELM6krclS-8U07uBMdenCAr028X3tQau3w5KRs&_nc_ohc=83_6lJHWK2IQ7kNvgFeczFn&_nc_zt=23&_nc_ht=scontent.fhan2-3.fna&_nc_gid=AbQZsl90Ydm-XfmXVbU7LE7&oh=00_AYAy8krK566A2ycABSQpBIC0rpUX5QjEPH_C40pYnaZgXQ&oe=673CA24E",
 				description: "Customer Nguyễn Văn Hà has been with us since 2021. He has made multiple purchases, including high-end laptops and accessories. Nguyễn Văn Hà is a tech enthusiast who often seeks the latest tech trends and innovations.",
-				orders: [
-					{ id: "#252125", date: "Nov 05, 2024", productName: "MacBook Pro 16 inch M3 Pro", items: 1, totalPrice: "$1000.00" },
-					{ id: "#252126", date: "Nov 10, 2024", productName: "iMac M4 2024 24 inch", items: 1, totalPrice: "$2000.00" }
+				orders: [{
+						id: "#252125",
+						date: "Nov 05, 2024",
+						productName: "MacBook Pro 16 inch M3 Pro",
+						items: 1,
+						totalPrice: "$1000.00"
+					},
+					{
+						id: "#252126",
+						date: "Nov 10, 2024",
+						productName: "iMac M4 2024 24 inch",
+						items: 1,
+						totalPrice: "$2000.00"
+					}
 				]
 			},
 			{
 				name: "Trần Minh Duy",
 				avatar: "https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/338056750_1386548332132718_7609961800439044619_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFqTiuZgbe1RngK-zxyhioX36-FWhEOquvfr4VaEQ6q61V-o24ot2gqiSvYAu-EtejKPbq-5jEd5tWkjZ2WglFP&_nc_ohc=XB8d30cDLDUQ7kNvgEtU2S2&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=A3tufYQ-SRyismgfVZZRJdY&oh=00_AYDoPTXC6t7qxEifvB2BsPPbovT1Rj2UBF3ld75kL9-nrw&oe=673CAD40",
 				description: "Trần Minh Duy is one of our loyal customers, known for his preference for gaming laptops and accessories. He joined our store in early 2022 and has since bought several high-performance products, including the Razer Blade 16.",
-				orders: [
-					{ id: "#252127", date: "Nov 15, 2024", productName: "Razer Blade 16", items: 1, totalPrice: "$3200.00" }
-				]
+				orders: [{
+					id: "#252127",
+					date: "Nov 15, 2024",
+					productName: "Razer Blade 16",
+					items: 1,
+					totalPrice: "$3200.00"
+				}]
 			},
 			{
 				name: "Lê Thanh Sơn",
 				avatar: "https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/322254340_3351151341805030_6501671695470116386_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFuyQA121u0DJTj3vXaewcqf68brNOiF-Z_rxus06IX5knM2pB1mrykS1G0Lf1Q3rxNUOeqUzJmJqaJqrYPOwXz&_nc_ohc=XanOHrm8vP8Q7kNvgHjszpe&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=ApcINUvXMObga4vZgMI-am4&oh=00_AYDuAQ7qHeYCdLN2QH2JWGa_rss66P4jIAPXpko0MpSSsg&oe=673CBF6C",
 				description: "Lê Thanh Sơn has a keen interest in professional workstations and often looks for high-powered devices to support his creative projects. He became a customer in mid-2023 and has already invested in top-tier products.",
-				orders: [
-					{ id: "#252128", date: "Nov 20, 2024", productName: "Asus ROG Strix", items: 1, totalPrice: "$2200.00" }
-				]
+				orders: [{
+					id: "#252128",
+					date: "Nov 20, 2024",
+					productName: "Asus ROG Strix",
+					items: 1,
+					totalPrice: "$2200.00"
+				}]
 			}
 		];
 
@@ -453,7 +475,6 @@
 				document.getElementById('orderTable').querySelector('tbody').innerHTML = "";
 			}
 		}
-		
 	</script>
 
 
@@ -485,16 +506,16 @@
 					</ul>
 					<ul class="footer-menu text-uppercase">
 						<li>
-							<a href="contact.html">CONTACT</a>
+							<a href="contact.php">CONTACT</a>
 						</li>
 						<li>
-							<a href="shop.html">SHOP</a>
+							<a href="shop.php">SHOP</a>
 						</li>
 						<li>
-							<a href="pricing.html">Pricing</a>
+							<a href="faq.html">F.A.Q</a>
 						</li>
 						<li>
-							<a href="contact.html">PRIVACY POLICY</a>
+							<a href="contact.php">PRIVACY POLICY</a>
 						</li>
 					</ul>
 					<p class="copyright-text">2024 &copy; Designed by BTEC Student Nguyen Van Ha <a

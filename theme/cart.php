@@ -47,9 +47,9 @@
 							Nguyễn Văn Hà
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="profile.html">Profile</a></li>
-							<li><a href="Order information.html">Order information</a></li>
-							<li><a href="login.html">Logout</a></li>
+							<li><a href="profile.php">Profile</a></li>
+							<li><a href="Order information.php">Order information</a></li>
+							<li><a href="login.php">Logout</a></li>
 						</ul>
 					</div>
 					<div class="contact-number"><br><br>
@@ -147,8 +147,8 @@
 									<span class="total-price">$1799.00</span>
 								</div>
 								<ul class="text-center cart-buttons">
-									<li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-									<li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+									<li><a href="cart.php" class="btn btn-small">View Cart</a></li>
+									<li><a href="checkout.php" class="btn btn-small btn-solid-border">Checkout</a></li>
 								</ul>
 							</div>
 
@@ -207,7 +207,7 @@
 
 						<!-- Home -->
 						<li class="dropdown ">
-							<a href="index.html">Home</a>
+							<a href="index.php">Home</a>
 						</li><!-- / Home -->
 
 
@@ -224,9 +224,9 @@
 										<ul>
 											<li class="dropdown-header">Pages</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="shop.html">Shop</a></li>
-											<li><a href="checkout.html">Checkout</a></li>
-											<li><a href="cart.html">Cart</a></li>
+											<li><a href="shop.php">Shop</a></li>
+											<li><a href="checkout.php">Checkout</a></li>
+											<li><a href="cart.php">Cart</a></li>
 											<li><a href="confirmation.html">Confirmation</a></li>
 
 										</ul>
@@ -237,8 +237,8 @@
 										<ul>
 											<li class="dropdown-header">Layout</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="product-single.html">Product Details</a></li>
-											<!-- <li><a href="shop-sidebar.html">Shop With Sidebar</a></li> -->
+											<li><a href="product-single.php">Product Details</a></li>
+											
 
 										</ul>
 									</div>
@@ -261,7 +261,7 @@
 										<ul>
 											<li class="dropdown-header">Introduction</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="contact.html">Contact Us</a></li>
+											<li><a href="contact.php">Contact Us</a></li>
 											<li><a href="404.html">404 Page</a></li>
 											<li><a href="faq.html">FAQ</a></li>
 										</ul>
@@ -272,11 +272,11 @@
 										<ul>
 											<li class="dropdown-header">Dashboard</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="dashboard.html">User Interface</a></li>
-											<li><a href="order.html">Orders</a></li>
-											<li><a href="address.html">Address</a></li>
-											<li><a href="profile-details.html">Profile Details</a></li>
-											<li><a href="post products.html">Post products</a></li>
+											<li><a href="dashboard.php">User Interface</a></li>
+											<li><a href="order.php">Orders</a></li>
+											<li><a href="address.php">Address</a></li>
+											<li><a href="profile-details.php">Profile Details</a></li>
+											<li><a href="post products.php">Post products</a></li>
 										</ul>
 									</div>
 
@@ -285,15 +285,15 @@
 										<ul>
 											<li class="dropdown-header">Utility</li>
 											<li role="separator" class="divider"></li>
-											<li><a href="login.html">Login Page</a></li>
-											<li><a href="signin.html">Signin Page</a></li>
-											<li><a href="forget-password.html">Forget Password</a></li>
+											<li><a href="login.php">Login Page</a></li>
+											<li><a href="signin.php">Signin Page</a></li>
+											<li><a href="forget-password.php">Forget Password</a></li>
 										</ul>
 									</div>
 
 									<!-- Mega Menu -->
 									<div class="col-sm-3 col-xs-12">
-										<a href="shop.html">
+										<a href="shop.php">
 											<img class="img-responsive"
 												src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/444503418_1202652411106053_6593793449677321316_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHBiCR-AYgnVooXX1LXcQ0cTWP5vC9N7gdNY_m8L03uB27qbMZZjgNpV26VCs8pp2gjYXUubWF9lKA7jcSkEOYM&_nc_ohc=Gi9FcivlIBAQ7kNvgGEf1cj&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=A-uXQ7aEiXsr3BhlAuKowoH&oh=00_AYDXxC9VitRrUCdpo_TlvEEGXj28BZwiU8z6XpxSRuJIDw&oe=6736296B"
 												alt="menu image" />
@@ -318,7 +318,7 @@
 				<div class="content">
 					<h1 class="page-name">Cart</h1>
 					<ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li class="active">cart</li>
 					</ol>
 				</div>
@@ -372,7 +372,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <a href="checkout.html" class="btn btn-main pull-right">Checkout</a>
+                <a href="checkout.php" class="btn btn-main pull-right">Checkout</a>
               </form>
             </div>
           </div>
@@ -410,19 +410,19 @@
 					</li>
 				</ul>
 				<ul class="footer-menu text-uppercase">
-					<li>
-						<a href="contact.html">CONTACT</a>
-					</li>
-					<li>
-						<a href="shop.html">SHOP</a>
-					</li>
-					<li>
-						<a href="pricing.html">Pricing</a>
-					</li>
-					<li>
-						<a href="contact.html">PRIVACY POLICY</a>
-					</li>
-				</ul>
+						<li>
+							<a href="contact.php">CONTACT</a>
+						</li>
+						<li>
+							<a href="shop.php">SHOP</a>
+						</li>
+						<li>
+							<a href="faq.html">F.A.Q</a>
+						</li>
+						<li>
+							<a href="contact.php">PRIVACY POLICY</a>
+						</li>
+					</ul>
 				<p class="copyright-text">2024 &copy; Designed by BTEC Student Nguyen Van Ha <a
 						href="https://www.facebook.com/nobelg.ha/" target="_blank">Facebook</a></p>
 

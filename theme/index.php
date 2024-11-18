@@ -89,7 +89,7 @@
 				<div class="col-md-4 col-xs-12 col-sm-4">
 					<!-- Site Logo -->
 					<div class="logo text-center">
-						<a href="index.html">
+						<a href="index.php">
 							<!-- replace logo here -->
 							<svg width="500px" height="150px" viewBox="0 0 600 200" version="1.1"
 								xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -810,7 +810,7 @@ Start Call To Action
 							<a href="shop.php">SHOP</a>
 						</li>
 						<li>
-							<a href="pricing.php">Pricing</a>
+							<a href="faq.html">F.A.Q</a>
 						</li>
 						<li>
 							<a href="contact.php">PRIVACY POLICY</a>
