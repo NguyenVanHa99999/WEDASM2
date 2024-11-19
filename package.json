@@ -1,22 +1,18 @@
 {
-  "name": "VAN HA SHOP",
-  "version": "1.1.0",
-  "description": "VAN HA SHOP ecommerce",
-  "author": "Themefisher",
-  "license": "MIT",
+  "name": "theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "gulp",
-    "build": "gulp build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "browser-sync": "^2.27.10",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-file-include": "^2.3.0",
-    "gulp-rimraf": "^1.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-header-comment": "^0.10.0",
-    "sass": "^1.52.3"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1"
   }
 }
