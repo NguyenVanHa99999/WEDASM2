@@ -6,11 +6,11 @@ define('SITE_AUTHOR', 'Nguyen Van Ha');
 
 // Helper functions
 function get_header() {
-    include 'components/header.php';
+    include '../components/header.php';
 }
 
 function get_footer() {
-    include 'components/footer.php';
+    include '../components/footer.php';
 }
 
 // Product data structure
@@ -34,19 +34,19 @@ function get_footer() {
 	<link rel="shortcut icon" type="image/x-icon" href="images/Caesium.png" />
 
 	<!-- Themefisher Icon font -->
-	<link rel="stylesheet" href="plugins/themefisher-font/style.css">
+	<link rel="stylesheet" href="../plugins/themefisher-font/style.css">
 	<!-- bootstrap.min css -->
-	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
 
 	<!-- Animate css -->
-	<link rel="stylesheet" href="plugins/animate/animate.css">
+	<link rel="stylesheet" href="../plugins/animate/animate.css">
 	<!-- Slick Carousel -->
-	<link rel="stylesheet" href="plugins/slick/slick.css">
-	<link rel="stylesheet" href="plugins/slick/slick-theme.css">
+	<link rel="stylesheet" href="../plugins/slick/slick.css">
+	<link rel="stylesheet" href="../plugins/slick/slick-theme.css">
 
 	<!-- Main Stylesheet -->
-	<link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../styles/main.css">
 
 </head>
 

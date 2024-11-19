@@ -45,6 +45,30 @@ function get_footer() {
 </head>
 
 <body id="body">
+ <script>
+        if (sessionStorage.getItem('accessDenied') === 'true') {
+            // Tạo thông báo
+            const messageDiv = document.createElement('div');
+            messageDiv.style.position = 'fixed';
+            messageDiv.style.top = '20px';
+            messageDiv.style.left = '50%';
+            messageDiv.style.transform = 'translateX(-50%)';
+            messageDiv.style.padding = '10px 20px';
+            messageDiv.style.backgroundColor = '#f44336';
+            messageDiv.style.color = '#fff';
+            messageDiv.style.fontSize = '16px';
+            messageDiv.style.borderRadius = '5px';
+            messageDiv.innerText = 'Bạn không có quyền truy cập vào trang này!';
+            document.body.appendChild(messageDiv);
+
+            // Xóa thông báo sau khi hiển thị
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+                // Xóa sessionStorage sau khi thông báo hiển thị
+                sessionStorage.removeItem('accessDenied');
+            }, 3000); // Thời gian hiển thị thông báo
+        }
+    </script>
 
  	<?php get_header(); ?>
 
