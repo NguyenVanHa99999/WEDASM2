@@ -38,7 +38,7 @@ $featured_products = getFeaturedProducts();
         <div class="container">
             <div class="row">
                 <div class="title text-center">
-                    <h2>Featured Tech Products</h2>
+                    <h1 >SHOP</h1>
                 </div>
             </div>
             <div class="row">
@@ -82,14 +82,11 @@ $featured_products = getFeaturedProducts();
 															<div class="preview-meta">
 																<ul>
 																	<li>
-																		<span data-toggle="modal" data-target="#product-modal">
-																			<i class="tf-ion-ios-search-strong"></i>
-																		</span>
-																	</li>
-															
-																	<li>
-																		<a href="#!"><i class="tf-ion-android-cart"></i></a>
-																	</li>
+                                                                        <a href="<?php echo '/WEDASM2/pages/product-details.php?product_id=' . $product['product_id']; ?>">
+                                                                            <i class="tf-ion-ios-search-strong"></i>
+                                                                        </a>
+                                                                    </li>
+
 																</ul>
 															</div>
                             </div>		

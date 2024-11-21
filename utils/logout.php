@@ -7,6 +7,12 @@ session_unset();
 
 // Hủy session
 session_destroy();
+
+// Xóa cookie user_email bằng cách đặt thời gian hết hạn trong quá khứ
+if (isset($_COOKIE['user_email'])) {
+    setcookie('user_email', '', time() - 3600, '/'); // Thời gian hết hạn là một giờ trước
+}
+
 echo '<script type="text/javascript">
         // Xóa tất cả dữ liệu trong localStorage
         localStorage.clear();

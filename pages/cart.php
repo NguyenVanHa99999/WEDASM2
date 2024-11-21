@@ -1,4 +1,79 @@
 <?php
+// Kết nối cơ sở dữ liệu
+require_once $_SERVER['DOCUMENT_ROOT'] . '/WEDASM2/config/connect.php';
+session_start();
+
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
+$user_email = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : null;
+
+if (!$user_email) {
+     echo '<script type="text/javascript">
+    
+        
+        // Chuyển hướng đến trang đăng ký (hoặc trang đăng nhập)
+        window.location.href = "/WEDASM2/pages/auth/sign-in.php"; // Đảm bảo URL chính xác
+      </script>';
+    exit;
+}
+
+// Kết nối cơ sở dữ liệu
+$conn = getDatabaseConnection();
+
+// Lấy user_id từ user_email
+$stmt = $conn->prepare("SELECT user_id FROM users WHERE email = :email");
+$stmt->bindValue(':email', $user_email, PDO::PARAM_STR);
+$stmt->execute();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    echo "<h3>Người dùng không tồn tại!</h3>";
+    exit;
+}
+
+$user_id = $user['user_id'];
+
+// Truy vấn giỏ hàng
+$stmt = $conn->prepare("
+    SELECT 
+        c.product_id, 
+        c.quantity, 
+        p.name, 
+        p.price, 
+        p.image 
+    FROM cart c
+    INNER JOIN products p ON c.product_id = p.product_id
+    WHERE c.user_id = :user_id
+");
+$stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+$stmt->execute();
+$cart_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+$base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/WEDASM2/';
+
+if (isset($_GET['product_id']) && isset($_GET['action']) && $_GET['action'] === 'remove') {
+    $product_id = intval($_GET['product_id']);
+
+    // Xóa sản phẩm khỏi giỏ hàng
+    $stmt = $conn->prepare("DELETE FROM cart WHERE user_id = :user_id AND product_id = :product_id");
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->bindValue(':product_id', $product_id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    // Chuyển hướng lại trang giỏ hàng để làm mới dữ liệu
+    header("Location: cart.php");
+    exit;
+}
+
+// Xử lý khi giỏ hàng rỗng
+if (!$cart_items) {
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/WEDASM2/components/empty-cart.php");
+    exit;
+}
+?>
+
+<?php
 
 function get_header() {
     include 'components/header.php';
@@ -81,36 +156,30 @@ function get_footer() {
                 <table class="table">
                   <thead>
                     <tr>
-                      <th class="">Item Name</th>
-                      <th class="">Item Price</th>
-                      <th class="">Actions</th>
+                       <th>Item Name</th>
+                        <th>Item Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="">
-                      <td class="">
-                        <div class="product-info">
-                          <img width="80" src="https://shopdunk.com/images/thumbs/0024433_midnight_550.jpeg" alt="" />
-                          <a href="#!">MacBook Air M3 13 inch</a>
-                        </div>
-                      </td>
-                      <td class="">$1200</td>
-                      <td class="">
-                        <a class="product-remove" href="#!">Remove</a>
-                      </td>
-                    </tr>
-                    <tr class="">
-                      <td class="">
-                        <div class="product-info">
-                          <img width="80" src="https://assets3.razerzone.com/xP6cTvuLHz3kTYQA4KlrCCZoCf0=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh0c%2Fh7d%2F9472706805790%2Fblade16-s9-1500x1000-2.jpg" alt="" />
-                          <a href="#!">Razer Blade 16</a>
-                        </div>
-                      </td>
-                      <td class="">$1200</td>
-                      <td class="">
-                        <a class="product-remove" href="#!">Remove</a>
-                      </td>
-                    </tr>
+
+<?php foreach ($cart_items as $item): ?>
+    <tr>
+        <td>
+            <div class="product-info">
+                <img width="80" src="<?php echo $base_url . $item['image']; ?>" alt="" />
+                <a href="#"><?php echo htmlspecialchars($item['name']); ?></a>
+            </div>
+        </td>
+        <td>$<?php echo number_format($item['price'], 2); ?></td>
+        <td><?php echo $item['quantity']; ?></td>
+        <td>
+            <a class="product-remove" href="cart.php?product_id=<?php echo $item['product_id']; ?>&action=remove">Remove</a>
+
+        </td>
+    </tr>
+<?php endforeach; ?>
                   </tbody>
                 </table>
                 <a href="checkout.php" class="btn btn-main pull-right">Checkout</a>
@@ -122,13 +191,8 @@ function get_footer() {
     </div>
   </div>
 </div>
-      <?php include 'components/footer.php'; ?>
+      <?php include '../components/footer.php'; ?>
 
-    <!-- 
-    Essential Scripts
-    =====================================-->
-    
-    <!-- Main jQuery -->
     <script src="plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.1 -->
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
