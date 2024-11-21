@@ -1,22 +1,48 @@
+		
+		
+		<script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user && user.email) {
+        document.cookie = `user_email=${user.email};path=/`;
+    }
+</script>
+<?php
+// Kết nối cơ sở dữ liệu
+require_once $_SERVER['DOCUMENT_ROOT'] . '/WEDASM2/config/connect.php';
+if (!$conn) {
+    die("Kết nối cơ sở dữ liệu không thành công!");
+}
+
+// Lấy email từ cookie
+$user_email = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : null;
+$user_full_name = "Guest"; // Mặc định nếu không có thông tin
+
+if ($user_email) {
+    $stmt = $conn->prepare("SELECT full_name FROM users WHERE email = :email");
+    $stmt->bindParam(':email', $user_email, PDO::PARAM_STR);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+        $user_full_name = $user['full_name'];
+    }
+}
+?>
+
 		<section class="top-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-xs-12 col-sm-4">
 						<div class="user-avatar">
-							<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-								<img src="https://github.com/shadcn.png" alt="User Avatar" class="avatar-img avt">
-								Nguyễn Văn Hà
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href=" <?php echo '/WEDASM2/pages/profile.php'; ?>">Profile</a></li>
-								<<li><a href="<?php echo '/WEDASM2/utils/logout.php'; ?>">Logout</a></li>
-
-							</ul>
-						</div>
-						<div class="contact-number"><br><br>
-							<i class="tf-ion-ios-telephone"></i>
-							<span>0972 - 867 - 256</span>
-						</div>
+				<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+						<img src="https://github.com/shadcn.png" alt="User Avatar" class="avatar-img avt">
+						<?php echo htmlspecialchars($user_full_name); ?>
+				</a>
+				<ul class="dropdown-menu">
+						<li><a href="<?php echo '/WEDASM2/pages/profile.php'; ?>">Profile</a></li>
+						<li><a href="<?php echo '/WEDASM2/utils/logout.php'; ?>">Logout</a></li>
+				</ul>
+		</div>
 					</div>
 					<style>
 						.user-avatar {

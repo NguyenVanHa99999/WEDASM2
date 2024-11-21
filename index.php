@@ -23,8 +23,6 @@ function get_footer() {
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title><?php echo SITE_NAME . ' | ' . SITE_DESCRIPTION; ?></title>
-
-  <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/Caesium.png" />
 
     <!-- Themefisher Icon font -->

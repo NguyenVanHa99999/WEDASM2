@@ -1,3 +1,45 @@
+<script>
+    // Lấy thông tin user từ localStorage và lưu email vào cookie
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user && user.email) {
+        document.cookie = `user_email=${user.email};path=/`;
+    }
+</script>
+
+<?php
+// Kết nối cơ sở dữ liệu
+require_once $_SERVER['DOCUMENT_ROOT'] . '/WEDASM2/config/connect.php';
+
+if (!$conn) {
+    die("Kết nối cơ sở dữ liệu không thành công!");
+}
+
+// Lấy email từ cookie
+$user_email = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : null;
+
+// Khởi tạo thông tin mặc định
+$user_full_name = "Guest";
+$user_phone = "N/A";
+$user_address = "N/A"; // Đảm bảo giá trị mặc định là "N/A"
+
+// Nếu có email, truy vấn thông tin người dùng
+if ($user_email) {
+    $stmt = $conn->prepare("SELECT full_name, phone, address FROM users WHERE email = :email");
+    $stmt->bindParam(':email', $user_email, PDO::PARAM_STR);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+        $user_full_name = $user['full_name'];
+        $user_phone = $user['phone'];
+        // Kiểm tra xem trường 'address' có tồn tại trong kết quả không
+        $user_address = isset($user['address']) ? $user['address'] : "N/A"; // Nếu không có, sử dụng "N/A"
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,12 +111,15 @@
                             </div>
                             <div class="media-body">
                                 <ul class="user-profile-list">
-                                    <li><span>Full Name:</span> <span id="displayName">Nguyễn Văn Hà</span></li>
-                                    <li><span>Country:</span> <span id="displayCountry">VN</span></li>
-                                    <li><span>Email:</span> <span id="displayEmail">nguyenduyha660@gmail.com</span></li>
-                                    <li><span>Phone:</span> <span id="displayPhone">+84 972 - 867 - 256</span></li>
-                                    <li><span>Date of Birth:</span> <span id="displayDob">2004-05-27</span></li>
+                                    <li><span>Name:</span> <span id="displayEmail"> <?= htmlspecialchars($user_full_name); ?></span></li>
+                                    <li><span>Email:</span> <span id="displayEmail"> <?= htmlspecialchars($user_email); ?></span></li>
+                                    <li><span>Phone:</span> <span id="displayPhone"><?= htmlspecialchars($user_phone); ?></span></li>
+                                    <li><span>Address:</span> <span id="displayPhone"><?= htmlspecialchars($user_address); ?></span></li>
                                 </ul>
+                                  <ul>
+    
+
+    </ul>
                                 <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#editProfileModal"
                                     style="margin-left: 800px;">Edit Profile</button>
                             </div>

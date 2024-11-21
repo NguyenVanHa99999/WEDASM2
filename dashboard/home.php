@@ -28,14 +28,14 @@
 	<link rel="stylesheet" href="../plugins/slick/slick-theme.css">
 
 	<!-- Main Stylesheet -->
-	<link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../styles/main.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../styles/main.css">
 
 
-</head>
-   <script>
-        // Lấy thông tin người dùng từ localStorage
-        const user = JSON.parse(localStorage.getItem('user'));
+    </head>
+    <script>
+            // Lấy thông tin người dùng từ localStorage
+            const user = JSON.parse(localStorage.getItem('user'));
 
         // Kiểm tra nếu không phải Admin, chuyển hướng về trang chủ
         if (!user || user.role !== 'admin') {

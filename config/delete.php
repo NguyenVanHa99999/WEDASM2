@@ -50,7 +50,7 @@ try {
 $conn = null;
 
 // Thêm link để quay lại trang tạo database
-echo "<br><a href='create_database.php' style='
+echo "<br><a href='initial.php' style='
     display: inline-block;
     padding: 10px 20px;
     background-color: #4CAF50;
