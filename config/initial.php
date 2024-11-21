@@ -43,26 +43,6 @@ try {
     $conn->exec($sql);
     echo "Table users created successfully<br>";
 
-    // Tạo bảng categories
-    $sql = "CREATE TABLE IF NOT EXISTS categories (
-        category_id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    ) ENGINE=InnoDB";
-    $conn->exec($sql);
-    echo "Table categories created successfully<br>";
-
-    // Tạo bảng brands
-    $sql = "CREATE TABLE IF NOT EXISTS brands (
-        brand_id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    ) ENGINE=InnoDB";
-    $conn->exec($sql);
-    echo "Table brands created successfully<br>";
-
     // Tạo bảng products
     $sql = "CREATE TABLE IF NOT EXISTS products (
         product_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -72,14 +52,11 @@ try {
         price DECIMAL(10,2) NOT NULL,
         sale_price DECIMAL(10,2),
         stock_quantity INT DEFAULT 0,
-        category_id INT,
-        brand_id INT,
+        category ENUM('Laptops', 'Desktops', 'Accessories'),
         status ENUM('draft', 'active', 'inactive') DEFAULT 'draft',
         is_featured BOOLEAN DEFAULT FALSE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        FOREIGN KEY (category_id) REFERENCES categories(category_id),
-        FOREIGN KEY (brand_id) REFERENCES brands(brand_id)
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     ) ENGINE=InnoDB";
     $conn->exec($sql);
     echo "Table products created successfully<br>";

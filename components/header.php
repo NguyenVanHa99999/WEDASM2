@@ -258,6 +258,7 @@ if ($user_email) {
 											<li role="separator" class="divider"></li>
 											<li><a href="<?php echo '/WEDASM2/dashboard/home.php' ?>">Users manager</a></li>
 											<li><a href="<?php echo '/WEDASM2/dashboard/order.php' ?>">Orders manager</a></li>
+											<li><a href="<?php echo '/WEDASM2/dashboard/post-product.php' ?>">Post product</a></li>
 									
 										</ul>
 									</div>
