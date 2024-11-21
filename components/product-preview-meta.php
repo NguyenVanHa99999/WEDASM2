@@ -1,3 +1,39 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/WEDASM2/config/connect.php';
+
+// Lấy kết nối
+$conn = getDatabaseConnection();
+
+function getFeaturedProducts($limit = 9) {
+    global $conn;  
+    
+    if ($conn === null) {
+        error_log("Kết nối cơ sở dữ liệu không tồn tại!");
+        return [];
+    }
+    
+    try {
+        $query = "SELECT * FROM products 
+				
+                  ORDER BY created_at DESC 
+                  LIMIT :limit";
+        
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+        error_log("Lỗi truy vấn sản phẩm: " . $e->getMessage());
+        return [];
+    }
+}
+
+
+$featured_products = getFeaturedProducts();
+?>
+
+
 <section class="products section bg-gray">
         <div class="container">
             <div class="row">
@@ -40,10 +76,8 @@
 																}
 															</style>
                     
-															<?php if (isset($product['sale']) && $product['sale']): ?>
-																	<span class="badge sale-text">Sale</span>
-															<?php endif; ?>
-															<img class="img-responsive" src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+													
+															<img class="img-responsive" src="<?php echo $product['image']; ?>" alt="<?php echo htmlspecialchars($product['image']) ?> ?>">
 																	
 															<div class="preview-meta">
 																<ul>
@@ -52,18 +86,16 @@
 																			<i class="tf-ion-ios-search-strong"></i>
 																		</span>
 																	</li>
-																	<li>
-																		<a href="#!"><i class="tf-ion-ios-heart"></i></a>
-																	</li>
+															
 																	<li>
 																		<a href="#!"><i class="tf-ion-android-cart"></i></a>
 																	</li>
 																</ul>
 															</div>
                             </div>		
-                            <div class="product-content">
-                                <h4><a href="product-single.php?id=<?php echo $product['id']; ?>"><?php echo $product['name']; ?></a></h4>
-                                <p class="price">$<?php echo number_format($product['price']); ?></p>
+                            <div class="product-content">  
+                                            <h4><?php echo htmlspecialchars($product['name']); ?></h4>
+                                <p class="price">$ <?php echo htmlspecialchars($product['price']) ?></p>
                             </div>
                         </div>
                     </div>

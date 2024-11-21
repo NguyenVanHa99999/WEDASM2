@@ -6,7 +6,8 @@ session_start();
 // Database Connection
 require_once $_SERVER['DOCUMENT_ROOT'] . '/WEDASM2/config/connect.php';
 
-// Check database connection
+
+$conn = getDatabaseConnection();
 if (!$conn) {
     die("Kết nối cơ sở dữ liệu không thành công!");
 }
@@ -58,7 +59,7 @@ if ($conn) {
                                 $stmt->execute([
                                     ':name' => $product_name,
                                     ':description' => $description,
-                                    ':image' => '/uploads/products/' . $unique_filename,
+                                    ':image' => 'uploads/products/' . $unique_filename,
                                     ':price' => $price,
                                     ':stock_quantity' => $quantity,
                                     ':category' => $category,

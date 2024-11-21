@@ -9,9 +9,15 @@
 <?php
 // Kết nối cơ sở dữ liệu
 require_once $_SERVER['DOCUMENT_ROOT'] . '/WEDASM2/config/connect.php';
-if (!$conn) {
+
+// Lấy kết nối
+$conn = getDatabaseConnection();
+
+if ($conn === null) {
     die("Kết nối cơ sở dữ liệu không thành công!");
 }
+
+
 
 // Lấy email từ cookie
 $user_email = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : null;

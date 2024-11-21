@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/WEDASM2/config/connect.php';
+$conn = getDatabaseConnection();
 if (!$conn) {
     die("Kết nối cơ sở dữ liệu không thành công!");
 }
