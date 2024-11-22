@@ -57,7 +57,7 @@ if ($user_email) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="author" content="Themefisher">
   <meta name="generator" content="Themefisher Constra HTML Template v1.0">
-  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="../images/Caesium.png" />
   
@@ -167,26 +167,20 @@ if ($user_email) {
                 </div>
                 <div class="modal-body">
                     <form id="editProfileForm">
+
                         <div class="form-group">
                             <label for="editName">Full Name</label>
-                            <input type="text" class="form-control" id="editName" value="Nguyễn Văn Hà">
-                        </div>
-                        <div class="form-group">
-                            <label for="editCountry">Country</label>
-                            <input type="text" class="form-control" id="editCountry" value="VN">
-                        </div>
-                        <div class="form-group">
-                            <label for="editEmail">Email</label>
-                            <input type="email" class="form-control" id="editEmail" value="nguyenduyha660@gmail.com">
+                            <input type="text" class="form-control" id="editName" value="<?= htmlspecialchars($user_full_name); ?>">
                         </div>
                         <div class="form-group">
                             <label for="editPhone">Phone</label>
-                            <input type="text" class="form-control" id="editPhone" value="+84 972 - 867 - 256">
+                            <input type="text" class="form-control" id="editPhone" value="<?= htmlspecialchars($user_phone); ?>">
                         </div>
                         <div class="form-group">
-                            <label for="editDob">Date of Birth</label>
-                            <input type="date" class="form-control" id="editDob" value="2004-05-27">
+                            <label for="editAddress">Address</label>
+                            <input type="text" class="form-control" id="editAddress" value="<?= htmlspecialchars($user_address); ?>">
                         </div>
+
                         <button type="button" class="btn btn-primary" onclick="saveChanges()">Save Changes</button>
                     </form>
                 </div>
@@ -194,35 +188,7 @@ if ($user_email) {
         </div>
     </div>
 
-    <script>
-        // Function to open file selector and update profile image
-        document.getElementById('changeImageButton').addEventListener('click', function () {
-            document.getElementById('imageUpload').click();
-        });
 
-        document.getElementById('imageUpload').addEventListener('change', function (event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    document.getElementById('profileImage').src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Function to save changes made in the modal to profile details
-        function saveChanges() {
-            document.getElementById('displayName').innerText = document.getElementById('editName').value;
-            document.getElementById('displayCountry').innerText = document.getElementById('editCountry').value;
-            document.getElementById('displayEmail').innerText = document.getElementById('editEmail').value;
-            document.getElementById('displayPhone').innerText = document.getElementById('editPhone').value;
-            document.getElementById('displayDob').innerText = document.getElementById('editDob').value;
-
-            $('#editProfileModal').modal('hide'); // Close modal after saving changes
-        }
-
-    </script>
 
 <footer class="footer section text-center">
 		<div class="container">
@@ -271,33 +237,106 @@ if ($user_email) {
 			</div>
 		</div>
 	</footer>
-    <!-- 
-    Essential Scripts
-    =====================================-->
+                                
+    <script>
+        // Function to open file selector and update profile image
+        document.getElementById('changeImageButton').addEventListener('click', function () {
+            document.getElementById('imageUpload').click();
+        });
 
-    <!-- Main jQuery -->
-    <script src="plugins/jquery/dist/jquery.min.js"></script>
+        document.getElementById('imageUpload').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Function to save changes made in the modal to profile details
+        // Lưu thay đổi thông tin hồ sơ
+     function saveChanges() {
+    const data = {
+        full_name: document.getElementById('editName').value,
+        phone: document.getElementById('editPhone').value,
+        address: document.getElementById('editAddress').value,
+    };
+
+    fetch('/WEDASM2/utils/update_profile.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+        .then(response => {
+            // Kiểm tra nếu phản hồi từ server có trạng thái không hợp lệ
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+         .then(result => {
+            if (result.status === 'success') {
+                // Hiển thị thông báo thành công
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: result.message,
+                    confirmButtonText: 'OK',
+                }).then(() => {
+                    // Reload trang sau khi người dùng ấn OK
+                    location.reload();
+                });
+            } else {
+                // Hiển thị thông báo lỗi từ server
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: result.message || 'Something went wrong.',
+                    confirmButtonText: 'Try Again',
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error updating profile:', error);
+            // Hiển thị thông báo lỗi không mong muốn
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred. Please try again.',
+                confirmButtonText: 'Try Again',
+            });
+        });
+}
+
+
+
+    </script>
+
+
+    <script src="../plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.1 -->
-    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
     <!-- Bootstrap Touchpin -->
-    <script src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="../plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
     <!-- Instagram Feed Js -->
-    <script src="plugins/instafeed/instafeed.min.js"></script>
+    <script src="../plugins/instafeed/instafeed.min.js"></script>
     <!-- Video Lightbox Plugin -->
-    <script src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <script src="../plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
     <!-- Count Down Js -->
-    <script src="plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+    <script src="../plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
     <!-- slick Carousel -->
-    <script src="plugins/slick/slick.min.js"></script>
-    <script src="plugins/slick/slick-animation.min.js"></script>
+    <script src="../plugins/slick/slick.min.js"></script>
+    <script src="../plugins/slick/slick-animation.min.js"></script>
 
     <!-- Google Mapl -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV-Pn9ApMuIanKJGMe4yVeZEyrY9aC9yQ"></script>
     <script type="text/javascript" src="plugins/google-map/gmap.js"></script>
 
     <!-- Main Js File -->
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 
 
 
